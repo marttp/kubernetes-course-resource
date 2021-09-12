@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: shopping
+  name: shopping
+  namespace: mart-dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: shopping
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: shopping
+    spec:
+      containers:
+      - image: marttp/shopping
+        name: shopping
+        ports:
+        - containerPort: 9000
+        resources: {}
+status: {}

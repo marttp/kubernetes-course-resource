@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: customer
+  name: customer
+  namespace: mart-dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: customer
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: customer
+    spec:
+      containers:
+      - image: marttp/customer-service
+        name: customer-service
+        ports:
+        - containerPort: 3000
+        resources: {}
+status: {}
